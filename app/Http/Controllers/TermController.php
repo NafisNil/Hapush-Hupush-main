@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Term;
 use Illuminate\Http\Request;
-
+use App\Http\Requests\TermRequest;
 class TermController extends Controller
 {
     /**
@@ -13,6 +13,9 @@ class TermController extends Controller
     public function index()
     {
         //
+        $term = Term::orderBy('id', 'desc')->first();
+        $termCount = Term::count();
+         return view('admin.term.index',['term'=>$term,'termCount'=> $termCount,]);
     }
 
     /**
@@ -21,14 +24,17 @@ class TermController extends Controller
     public function create()
     {
         //
+        return view('admin.term.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(TermRequest $request)
     {
         //
+        $term = Term::create($request->all());
+        return redirect()->route('term.index')->with('success','Data inserted successfully');
     }
 
     /**
@@ -45,14 +51,19 @@ class TermController extends Controller
     public function edit(Term $term)
     {
         //
+        return view('admin.term.edit',[
+            'edit' => $term
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Term $term)
+    public function update(TermRequest $request, Term $term)
     {
         //
+        $term->update($request->all());
+        return redirect()->route('term.index')->with('success','Data inserted successfully');
     }
 
     /**
@@ -61,5 +72,7 @@ class TermController extends Controller
     public function destroy(Term $term)
     {
         //
+        $term->delete();
+        return redirect()->route('term.index')->with('status','Data deleted successfully!');
     }
 }

@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\PartnerController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\RunningController;
+use App\Http\Controllers\TermController;
+use App\Http\Controllers\ContactController;
 use App\Http\Middleware\Admin;
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,7 @@ Route::prefix('/admin')->group(function(){
         'partner' => PartnerController::class,
         'slider' => SliderController::class,
         'running' => RunningController::class,
+        'term' => TermController::class,
         // 'booking' => BookingController::class
     ]);
 

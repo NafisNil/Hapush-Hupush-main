@@ -34,7 +34,6 @@ class AboutController extends Controller
     {
         //
         $about = About::create($request->all());
-      
         return redirect()->route('about.index')->with('success','Data inserted successfully');
     }
 
@@ -64,7 +63,6 @@ class AboutController extends Controller
     {
         //
         $about->update($request->all());
-       
         return redirect()->route('about.index')->with('success','Data inserted successfully');
     }
 

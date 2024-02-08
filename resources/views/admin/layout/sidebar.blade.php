@@ -117,6 +117,16 @@
               </p>
             </a>
           </li>
+
+          <li class="nav-item">
+            <a href="{{route('contact.index')}}" class="nav-link {{$route == 'contact.index'?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+                Contact Information
+                
+              </p>
+            </a>
+          </li>
           @if(Session::get('page')=="Partner")
                   @php $active="active" @endphp
               @else
@@ -139,6 +149,16 @@
               <i class="nav-icon fas fa-th"></i>
               <p>
                 About us
+                
+              </p>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a href="{{route('term.index')}}" class="nav-link {{$route == 'term.index'?'active':''}}">
+              <i class="nav-icon fas fa-th"></i>
+              <p>
+               Terms and Conditions
                 
               </p>
             </a>

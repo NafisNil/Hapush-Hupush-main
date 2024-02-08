@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class TermRequest extends FormRequest
+class SocialRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,9 @@ class TermRequest extends FormRequest
     {
         return [
             //
-            'description' => 'required'
+            'facebook' => 'url',
+            'instagram' => 'url',
+            'youtube' => 'url',
         ];
     }
 }
